@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "./Card";
 
-    function App() {
+
+
+function App() {
   const [cars, setCar] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -11,6 +14,9 @@ import axios from "axios";
   const [year, setYear] = useState("");
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
+
+  let subtitle;
+ 
 
   const apiCall = async () => {
     try {
@@ -48,28 +54,19 @@ import axios from "axios";
 
   if (error) return <p>error</p>;
   if (loading) return <p>Loading...</p>;
-    return(
-        <>
-        <img className="logo" src="/src/assets/a.avif" alt="" />
-            <h2>Welcome home</h2>
-             <div>
+  return (
+    <>
+      <img className="logo" src="/src/assets/a.avif" alt="" />
+      <h2>Welcome home</h2>
+      <div>
         <h1>Car Details</h1>
 
-        {cars.map((car) => (
-          <div key={car.id}>
-            <div className="main">
-              <h2>The Car Brand {car.brand}</h2>
-              <p>Car Model - {car.model}</p>
-              <p>Car Year - {car.year}</p>
-              <img src={`https://node-exe.vercel.app/public/${car.Image}`} alt="" />
-              <a href={car.URL}>More Info</a>
-            </div>
-          </div>
-        ))}
+        {cars.map((car) => <Card car={car} />)}
+
       </div>
-            <Link to='/home'></Link>
-        </>
-    )
+      <Link to='/home'></Link>
+    </>
+  )
 }
 
 
