@@ -7,6 +7,7 @@ import NavBar from './components/NavBar.jsx'
 import Weather from './components/Weather.jsx'
 import Quote from './components/Quote.jsx'
 import User from './components/User.jsx'
+import SearchCar from './components/Searchcar.jsx'
 
 
 
@@ -18,6 +19,7 @@ function AppRouter() {
       <NavBar />
       <Routes>
         <Route path="/home" element={<App />} />
+        <Route path="/searchCar" element={<SearchCar />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/users/" element={<Users />} />
         <Route path="/users/:student" element={<User />} />

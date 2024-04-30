@@ -6,6 +6,7 @@ const NavBar = () => {
         <>
             <div style={{display: 'flex', width:'500px', justifyContent: 'space-between'}}>
                 <Link to='/home'>Home</Link>
+                <Link to='/searchcar'>Search Car</Link>
                 <Link to='/users'>Users</Link>
                 <Link to='/contact'>Contact</Link>
                 <Link to='/weather'>Weather</Link>
