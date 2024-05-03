@@ -19,7 +19,7 @@ function AppRouter() {
       <NavBar />
       <Routes>
         <Route path="/home" element={<App />} />
-        <Route path="/searchCar" element={<SearchCar />} />
+        <Route path="/searchcar" element={<SearchCar />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/users/" element={<Users />} />
         <Route path="/users/:student" element={<User />} />

@@ -5,19 +5,18 @@ import { Link } from 'react-router-dom';
 
 
 const SearchCar = () => {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(null);
     const [car, setCar] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-
+    const API_KEY = 'DNHAm2aSmhkfPh7Xpg8eug==uWZo49Q3Kq0bdCGF'
 
     const fetchCar = async () => {
         try {
-            const response = await axios.get(
-           
-                `https://private-anon-9a17604c73-carsapi1.apiary-mock.com/manufacturers/ford`
-            );
+            const response = await axios.get(`https://api.api-ninjas.com/v1/cars?make=${!search ? 'ford' :  search}`, {
+              headers : {'X-Api-Key' : API_KEY}
+            });
             console.log(response.data);
             setCar(response.data);
            
@@ -49,6 +48,7 @@ const SearchCar = () => {
     return (
       <div>
         <h1>Search Car</h1>
+       
         {/* {car && car.map((car) =>
          (
           <div key={car.id}>
