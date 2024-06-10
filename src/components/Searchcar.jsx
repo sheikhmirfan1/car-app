@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const SearchCar = () => {
     const [search, setSearch] = useState(null);
     const [car, setCar] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const API_KEY = 'DNHAm2aSmhkfPh7Xpg8eug==uWZo49Q3Kq0bdCGF'
+    const API_KEY = "2ZgWgwz9+CjWBDp1zI8ZJg==SDTo8FAYCGeDIf6p";
 
     const fetchCar = async () => {
         try {
@@ -48,30 +49,31 @@ const SearchCar = () => {
     return (
       <div>
         <h1>Search Car</h1>
-       
-        {/* {car && car.map((car) =>
-         (
-          <div key={car.id}>
-            <h2> Model: {car.name}</h2>
-            <p> ID: {car.max_car_id}</p>
-            
-          </div>
-        ))} */}
+
+        <label>Search for a car </label>
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-
-        {car && (
-          <div>
-            <h2>{car.name}</h2>
-            <p>{car.year}</p>
-          </div>
-        )}
-        {error && <p>{error}</p>}
         <button onClick={fetchCar}>Search</button>
-        <br />
+
+        <h2>Car</h2>
+        <>
+          {car.map((car) => (
+            <div key={car.id}>
+              <div className='crs'>
+                <h2>{car.make}</h2>
+                <p>{car.class}</p>
+                <p>{car.model}</p>
+                <p>{car.year}</p>
+                <p>{car.transmission}</p>
+              </div>
+            </div>
+          ))}
+        </>
+
+        {error && <p>{error}</p>}
 
         <Link to="/home">Go back to home</Link>
       </div>
